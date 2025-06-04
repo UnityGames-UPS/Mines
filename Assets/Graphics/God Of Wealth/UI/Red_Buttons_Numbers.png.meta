@@ -1,0 +1,1310 @@
+fileFormatVersion: 2
+guid: b1c1e3056258e4ee4be3b5cac589b2fe
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 1170
+        width: 196
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960de9b8af9d04e8caad581991fbd329
+      internalID: -1224721254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_1
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 1174
+        width: 126
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97dd02bebcd234c928c8ffcc093fe525
+      internalID: -1685219948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1174
+        width: 218
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889551a757dec4530b6553414412ef53
+      internalID: 1849225201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_3
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 1288
+        width: 14
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b87827afa4d94ad3b73fbbb7087a08a
+      internalID: 1412249146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_4
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1141
+        width: 175
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b2c70998fbd41aab4b941e9c059e93
+      internalID: 1720574260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_5
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 1174
+        width: 216
+        height: 240
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0954beb263f471683108ff6c74f94e
+      internalID: 1447872721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_6
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 1161
+        width: 210
+        height: 282
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5eb66e2c42bd4674892a0819ad06342
+      internalID: -1022720141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_7
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 1155
+        width: 169
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f158edc0de14416aa3b69bc130e096a
+      internalID: -733158797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_8
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 1176
+        width: 238
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156656550a3494cc7817ecfcd0cee1eb
+      internalID: 538047883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_9
+      rect:
+        serializedVersion: 2
+        x: 1914
+        y: 1141
+        width: 224
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9602d3a4519df4e62b8b3c84454809e9
+      internalID: -1276533602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_10
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 1148
+        width: 177
+        height: 274
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07bafb41fda3f425683a7c20c2eb6a8e
+      internalID: -52127027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_11
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 1277
+        width: 28
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab49e141f54954cf2a5aac86e1adfd5f
+      internalID: -1217024015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_12
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 1270
+        width: 25
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab38ddc3f79324d69ae3c4a4525ab952
+      internalID: -321937499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_13
+      rect:
+        serializedVersion: 2
+        x: 1595
+        y: 1163
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e466545ade0b494b88e2048f231ad3c
+      internalID: 902936898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_14
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 1197
+        width: 29
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39216e010c4d64c5b95968eb2b7b751a
+      internalID: 1681371682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_15
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 1165
+        width: 7
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87b320fc67ef43b586953943999fd37
+      internalID: -444726979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_16
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 1165
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e159520c6e74c20a89cc437616a100
+      internalID: 951810105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_17
+      rect:
+        serializedVersion: 2
+        x: 2064
+        y: 1162
+        width: 33
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19b54ec884d4a42039f5e7afd4f25361
+      internalID: -1580027689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_18
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 1148
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ce9c5e242c5c47299cfbf44aa673253
+      internalID: -1981948152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_19
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 932
+        width: 115
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b57a89f3091b4aaf8300456d373e7fc
+      internalID: -279844499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_20
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 985
+        width: 98
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91170f7d6b09d40d5bec9b5e15075262
+      internalID: -719058645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_21
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 873
+        width: 228
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa7bcf3b3f7148bc8ae73b2f40a2d2d
+      internalID: 1056304834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_22
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 878
+        width: 228
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a2620056612481e93044bb595d86d0
+      internalID: -1785686313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_23
+      rect:
+        serializedVersion: 2
+        x: 1831
+        y: 876
+        width: 230
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820c081ddddde471c83bbd4c1800bca8
+      internalID: -1585442760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_24
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 871
+        width: 233
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77001027b566b4237bbabc16f81c594b
+      internalID: 1449607924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_25
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 970
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39a823cb05074bfd946c81330bb8f83
+      internalID: -473361061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_26
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 759
+        width: 162
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ad5b74329674128849b0de7b2880e3
+      internalID: 899923907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_27
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 761
+        width: 335
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52e8f660caf746e6afdb754c004aa34
+      internalID: 2063219345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_28
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 759
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b1840a5b5f24e279625a7154b2113d
+      internalID: 1362409568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_29
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 759
+        width: 505
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85890094977384819b5aeb72e3c1686f
+      internalID: 1104148890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_30
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 594
+        width: 227
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f932183cf2f445e4bb62dad90dfb060
+      internalID: -2110056299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_31
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 598
+        width: 227
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa69d02595574318b174138ddbac0a3
+      internalID: -1139437941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_32
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 597
+        width: 230
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9afc5919d3da47649131c1d63c06fe7
+      internalID: -1437587292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_33
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 594
+        width: 229
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93546ccbebb464207aa38205470d8ee0
+      internalID: -1404313172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_34
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 634
+        width: 167
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb9f2dff3a74846269e1ab318314f2ed
+      internalID: -1121024183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_35
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 641
+        width: 333
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293cb7883e2ee4ec48912ed8dca1f017
+      internalID: 1818156400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_36
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 633
+        width: 510
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d014fe5b125743a99a00bc06ed13541
+      internalID: 1127333086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_37
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 514
+        width: 66
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ce8c4706fe648cdbdf289e50570442
+      internalID: 1220373161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_38
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 486
+        width: 91
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b05d21569f4064ea7acdcd21a370e937
+      internalID: 1676991679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_39
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 486
+        width: 332
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9332b17fc6b6a49689489ade1f346e27
+      internalID: -1753818632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_40
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 508
+        width: 505
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61ef48132593a4a839d2664bdc58ff79
+      internalID: 554584142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_41
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 316
+        width: 227
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd51e76b058114eafa1e68f16fddb209
+      internalID: 2035346206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_42
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 317
+        width: 228
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dca53a0472e041f8aa467b917fbd886
+      internalID: 1705988873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_43
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 318
+        width: 229
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45ae57d6a6b6c4c7a805bd2457f3811b
+      internalID: -372811687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_44
+      rect:
+        serializedVersion: 2
+        x: 2109
+        y: 316
+        width: 228
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5eb2a2c3d0eb4075b0c0a71fc2327ec
+      internalID: -129161663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_45
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 215
+        width: 182
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128e028e8d0c9447b9e5a872e1d8251e
+      internalID: -811305604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_46
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 236
+        width: 161
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfd6d14bdaed44c8bdaeb13c4c8f313
+      internalID: -1957680557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_47
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 215
+        width: 168
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0154320f660314314b8c4df72b242dc8
+      internalID: -858401872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_48
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 38
+        width: 227
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 914c7b71c22234d5694dcbb1102fed3f
+      internalID: -2074423962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_49
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 35
+        width: 253
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d519d9f0a78492fbe3eeaf0127b2f8
+      internalID: -1916642281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_50
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 13
+        width: 232
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4fa151812c8e4c058e0c2a717398eab
+      internalID: 379829341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red_Buttons_Numbers_51
+      rect:
+        serializedVersion: 2
+        x: 2095
+        y: 13
+        width: 245
+        height: 259
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f5824d360b14b8fb2f99c704f86e6c
+      internalID: -2014427367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Red_Buttons_Numbers_0: -1224721254
+      Red_Buttons_Numbers_1: -1685219948
+      Red_Buttons_Numbers_10: -52127027
+      Red_Buttons_Numbers_11: -1217024015
+      Red_Buttons_Numbers_12: -321937499
+      Red_Buttons_Numbers_13: 902936898
+      Red_Buttons_Numbers_14: 1681371682
+      Red_Buttons_Numbers_15: -444726979
+      Red_Buttons_Numbers_16: 951810105
+      Red_Buttons_Numbers_17: -1580027689
+      Red_Buttons_Numbers_18: -1981948152
+      Red_Buttons_Numbers_19: -279844499
+      Red_Buttons_Numbers_2: 1849225201
+      Red_Buttons_Numbers_20: -719058645
+      Red_Buttons_Numbers_21: 1056304834
+      Red_Buttons_Numbers_22: -1785686313
+      Red_Buttons_Numbers_23: -1585442760
+      Red_Buttons_Numbers_24: 1449607924
+      Red_Buttons_Numbers_25: -473361061
+      Red_Buttons_Numbers_26: 899923907
+      Red_Buttons_Numbers_27: 2063219345
+      Red_Buttons_Numbers_28: 1362409568
+      Red_Buttons_Numbers_29: 1104148890
+      Red_Buttons_Numbers_3: 1412249146
+      Red_Buttons_Numbers_30: -2110056299
+      Red_Buttons_Numbers_31: -1139437941
+      Red_Buttons_Numbers_32: -1437587292
+      Red_Buttons_Numbers_33: -1404313172
+      Red_Buttons_Numbers_34: -1121024183
+      Red_Buttons_Numbers_35: 1818156400
+      Red_Buttons_Numbers_36: 1127333086
+      Red_Buttons_Numbers_37: 1220373161
+      Red_Buttons_Numbers_38: 1676991679
+      Red_Buttons_Numbers_39: -1753818632
+      Red_Buttons_Numbers_4: 1720574260
+      Red_Buttons_Numbers_40: 554584142
+      Red_Buttons_Numbers_41: 2035346206
+      Red_Buttons_Numbers_42: 1705988873
+      Red_Buttons_Numbers_43: -372811687
+      Red_Buttons_Numbers_44: -129161663
+      Red_Buttons_Numbers_45: -811305604
+      Red_Buttons_Numbers_46: -1957680557
+      Red_Buttons_Numbers_47: -858401872
+      Red_Buttons_Numbers_48: -2074423962
+      Red_Buttons_Numbers_49: -1916642281
+      Red_Buttons_Numbers_5: 1447872721
+      Red_Buttons_Numbers_50: 379829341
+      Red_Buttons_Numbers_51: -2014427367
+      Red_Buttons_Numbers_6: -1022720141
+      Red_Buttons_Numbers_7: -733158797
+      Red_Buttons_Numbers_8: 538047883
+      Red_Buttons_Numbers_9: -1276533602
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

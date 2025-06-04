@@ -1,0 +1,472 @@
+fileFormatVersion: 2
+guid: eadaa8ac8aa1740ffa9ce1ca7fde1165
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: start stop setting buttons_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 621
+        width: 214
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af08e2244bfb4253852b233ffdb26f1
+      internalID: -85303508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_2
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 623
+        width: 219
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7c56bb7522c48778a2ef5d7c369976
+      internalID: -1994227614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_4
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 629
+        width: 137
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 634b189b9737d43ec95ab05bf6d911fd
+      internalID: 733572788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_8
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 431
+        width: 216
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83952b3cb22c54ddb940e91f4d560113
+      internalID: 1931493128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_10
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 430
+        width: 220
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b8900b1c0ab94a5ba80c42e76595d15
+      internalID: -1567674684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_12
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 431
+        width: 137
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01016866321b04a71ad07d50d3c9f3c7
+      internalID: 826014403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_23
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 238
+        width: 216
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53db7ee14dcc0442ba441192b3615d0d
+      internalID: 1578057273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_25
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 236
+        width: 220
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38a1a433a62ab47e190f3920549a0744
+      internalID: -1185104931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_27
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 235
+        width: 137
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c35b826728d94193b6db6ef6435560d
+      internalID: -1054401085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_37
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 40
+        width: 216
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b8b54d41430424b946b572ffeaea3b
+      internalID: -186738233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_39
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 42
+        width: 221
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea35f1440d5ef4908ae483c2542038a3
+      internalID: 1629388523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: start stop setting buttons_40
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 44
+        width: 138
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b3f974c33994f689fd7acc8a6a0792
+      internalID: 1203353933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      start stop setting buttons_0: -85303508
+      start stop setting buttons_1: -248159821
+      start stop setting buttons_10: -1567674684
+      start stop setting buttons_11: 619668814
+      start stop setting buttons_12: 826014403
+      start stop setting buttons_13: -98406523
+      start stop setting buttons_14: 1140291844
+      start stop setting buttons_15: 34985151
+      start stop setting buttons_16: -50802755
+      start stop setting buttons_17: 499956422
+      start stop setting buttons_18: 1813669936
+      start stop setting buttons_19: 1544964626
+      start stop setting buttons_2: -1994227614
+      start stop setting buttons_20: -938358754
+      start stop setting buttons_21: 636084346
+      start stop setting buttons_22: -2130559394
+      start stop setting buttons_23: 1578057273
+      start stop setting buttons_24: -1312929918
+      start stop setting buttons_25: -1185104931
+      start stop setting buttons_26: 1887610939
+      start stop setting buttons_27: -1054401085
+      start stop setting buttons_28: -771213343
+      start stop setting buttons_29: -43627263
+      start stop setting buttons_3: 63458618
+      start stop setting buttons_30: 1181138805
+      start stop setting buttons_31: 355620737
+      start stop setting buttons_32: 1566444225
+      start stop setting buttons_33: -1326677494
+      start stop setting buttons_34: 876247887
+      start stop setting buttons_35: -803724456
+      start stop setting buttons_36: 1855880563
+      start stop setting buttons_37: -186738233
+      start stop setting buttons_38: 153268263
+      start stop setting buttons_39: 1629388523
+      start stop setting buttons_4: 733572788
+      start stop setting buttons_40: 1203353933
+      start stop setting buttons_41: 1607330806
+      start stop setting buttons_42: -508437421
+      start stop setting buttons_43: -972621710
+      start stop setting buttons_44: 1538657876
+      start stop setting buttons_45: 1327129575
+      start stop setting buttons_46: 1634235477
+      start stop setting buttons_47: -1271986572
+      start stop setting buttons_48: -1266546463
+      start stop setting buttons_49: -552225958
+      start stop setting buttons_5: -1765598676
+      start stop setting buttons_50: -827146810
+      start stop setting buttons_51: 500176203
+      start stop setting buttons_52: -295697254
+      start stop setting buttons_53: 1055170226
+      start stop setting buttons_6: -1957079663
+      start stop setting buttons_7: 704954246
+      start stop setting buttons_8: 1931493128
+      start stop setting buttons_9: 1221934962
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
