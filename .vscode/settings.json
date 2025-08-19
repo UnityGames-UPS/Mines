@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Pk_Mines.sln"
+    "dotnet.defaultSolution": "Mines.sln"
 }

@@ -11,14 +11,15 @@ public class AudioController : MonoBehaviour
     [SerializeField] internal AudioSource audioSpin_button;
     [SerializeField] private AudioClip[] clips;
     [SerializeField] private AudioClip[] Bonusclips;
-   // [SerializeField] private AudioSource bg_audioBonus;
-   // [SerializeField] private AudioSource audioPlayer_Bonus;
+
+    internal bool muteAudio = false;
+    internal bool muteMusic = true;
 
     private void Start()
     {
         if (bg_adudio) bg_adudio.Play();
-        audioPlayer_button.clip = clips[clips.Length-1];
-        audioSpin_button.clip = clips[clips.Length-2];
+        audioPlayer_button.clip = clips[clips.Length - 1];
+        audioSpin_button.clip = clips[clips.Length - 2];
     }
 
     internal void CheckFocusFunction(bool focus, bool IsSpinning)
@@ -47,9 +48,9 @@ public class AudioController : MonoBehaviour
 
     internal void SwitchBGSound(bool isbonus)
     {
-        if(isbonus)
+        if (isbonus)
         {
-           // if (bg_audioBonus) bg_audioBonus.enabled = true;
+            // if (bg_audioBonus) bg_audioBonus.enabled = true;
             if (bg_adudio) bg_adudio.enabled = false;
         }
         else
@@ -61,30 +62,34 @@ public class AudioController : MonoBehaviour
 
     internal void PlayWLAudio(string type)
     {
+        if (muteAudio) return;
         audioPlayer_wl.loop = false;
         int index = 0;
         switch (type)
         {
-            case "spin":
+            case "ding":
                 index = 0;
-                audioPlayer_wl.loop = true;
+                // audioPlayer_wl.loop = true;
                 break;
-            case "win":
+            case "button":
                 index = 1;
                 break;
-            case "lose":
+            case "mine":
                 index = 2;
                 break;
-            case "spinStop":
+            case "diamond":
                 index = 3;
                 break;
-            case "megaWin":
+            case "bomb":
                 index = 4;
+                break;
+            case "start":
+                index = 5;
                 break;
         }
         StopWLAaudio();
         audioPlayer_wl.clip = clips[index];
-        Debug.Log("STOP SPIN INDEX :"+ index);
+        Debug.Log("STOP SPIN INDEX :" + index);
         audioPlayer_wl.Play();
 
 
@@ -139,20 +144,20 @@ public class AudioController : MonoBehaviour
         bg_adudio.Stop();
     }
 
-    internal void ToggleMute(bool toggle, string type="all")
+    internal void ToggleMute(bool toggle, string type = "all")
     {
         switch (type)
         {
             case "bg":
                 bg_adudio.mute = toggle;
-               // bg_audioBonus.mute = toggle;
+                // bg_audioBonus.mute = toggle;
                 break;
             case "button":
-                audioPlayer_button.mute=toggle;
-                audioSpin_button.mute=toggle;
+                audioPlayer_button.mute = toggle;
+                audioSpin_button.mute = toggle;
                 break;
             case "wl":
-                audioPlayer_wl.mute=toggle;
+                audioPlayer_wl.mute = toggle;
                 //audioPlayer_Bonus.mute = toggle;
                 break;
             case "all":

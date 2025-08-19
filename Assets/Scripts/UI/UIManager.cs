@@ -6,600 +6,272 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Networking;
+using System.Linq;
 
 public class UIManager : MonoBehaviour
 {
-    [Header("Settings UI")]
-    [SerializeField] private Button Settings_Button;
+    [Header("Script Refrence")]
+    public SocketIOManager socketManager;
+    public GameManager gameManager;
 
-    [SerializeField]
-    private Button Exit_Button;
-    [SerializeField]
-    private GameObject Exit_Object;
-    [SerializeField]
-    private RectTransform Exit_RT;
+    public AudioController audioController;
 
-    [SerializeField]
-    private Button Paytable_Button;
-    [SerializeField]
-    private GameObject Paytable_Object;
-    [SerializeField]
-    private RectTransform Paytable_RT;
 
-    [Header("Popus UI")]
-    [SerializeField]
-    private GameObject MainPopup_Object;
+    [Space]
+    [Header("Manual Auto Panel")]
+    [SerializeField] private Button ManualBtn;
+    [SerializeField] private Button AutoBtn;
+    [SerializeField] private GameObject toglePanel;
 
-    [Header("Paytable Popup")]
-  
-    [SerializeField]
-    private TMP_Text Scatter_Text;
-    [SerializeField]
-    private TMP_Text BlueWild_Text;
-    [SerializeField]
-    private TMP_Text GoldWild_Text;
 
-    [Header("Settings Popup")]
-    [SerializeField]
-    private GameObject SettingsPopup_Object;
-    [SerializeField]
-    private Button SettingsExit_Button;
-    [SerializeField]
-    private Button Sound_Button;
-    [SerializeField]
-    private Button Music_Button;
-
-    [Header("Win Popup")]
-    [SerializeField]
-    private GameObject BigWin_Gameobject;
-    [SerializeField]
-    private GameObject HugeWin_Gameobject;
-    [SerializeField]
-    private GameObject MegaWin_GameObject;
-    [SerializeField]
-    private GameObject WinPopupMain_Object;
-    [SerializeField]
-    private TMP_Text Win_Text;
-    [SerializeField] private Button SkipWinAnimation;
-
-    [Header("FreeSpins Popup")]
-    [SerializeField]
-    private GameObject FreeSpinMainPopup_Object;
-    [SerializeField]
-    private GameObject FreeSpinPopup_Object;
-    [SerializeField] private Button SkipFreeSpinAnimation;
-    private bool ShowFreeSpin;
-    // [SerializeField]
-    // private TMP_Text Free_Text;
-
-    [Header("Disconnection Popup")]
-    [SerializeField]
-    private Button CloseDisconnect_Button;
-    [SerializeField]
-    private GameObject DisconnectPopup_Object;
-
-    [Header("AnotherDevice Popup")]
-    // [SerializeField]
-    // private GameObject ADPopup_Object;
-
-    [Header("LowBalance Popup")]
-    [SerializeField]
-    private Button LBExit_Button;
-    [SerializeField]
-    private GameObject LBPopup_Object;
-
-    [Header("Quit Popup")]
-    [SerializeField]
-    private GameObject QuitPopup_Object;
-    [SerializeField]
-    private Button YesQuit_Button;
-    [SerializeField]
-    private Button NoQuit_Button;
-    [SerializeField]
-    private Button CrossQuit_Button;
-
-    [SerializeField]
-    private AudioController audioController;
-
-    [SerializeField]
-    private Button GameExit_Button;
-
-    [SerializeField]
-    private SlotBehaviour slotManager;
-
-    [SerializeField]
-    private SocketIOManager socketManager;
-
-    private bool isMusic = true;
-    private bool isSound = true;
-    private bool isExit = false;
-    private Tween WinPopupTextTween;
-    private Tween ClosePopupTween;
-    internal int FreeSpins;
-
-    [Header("Info_Pages")]
-    [SerializeField] private GameObject infoPanel;
-    [SerializeField] private Button infoButton;
-    public List<GameObject> infoPages;
-    public List<GameObject> infoInnerDots;
-    public Button infoLeftButton;
-    public Button infoRightButton;
-    [SerializeField] private Button infoCloseButton;
-
-    [Header("Sound")]
-    [SerializeField] private Sprite Enable_Sound_sprite;
-    [SerializeField] private Sprite Disable_Sound_sprite;
+    [Header("Fields")]
+    [SerializeField] private GameObject BetAmount;
+    [SerializeField] private GameObject NoOfMines;
+    [SerializeField] private GameObject NoOFBets;
+    [SerializeField] private GameObject StopOnProfit;
+    [SerializeField] private GameObject StopOnLoss;
 
 
 
+    [Header("Leftpanel")]
+    [SerializeField] internal TMP_Dropdown BetAmountDropDown;
 
-    private int currentPage = 0;
+
+    [Header("DropDown Mines")]
+    [SerializeField] private Slider MinesSlider;
+    [SerializeField] private TMP_Text DiamondAmount;
+    [SerializeField] private TMP_Text BombAmount;
 
 
+    [Header("Player Balance")]
+    [SerializeField] internal TMP_Text playerBalanceText;
+
+
+    [Header("Stop Loss")]
+    [SerializeField] private TMP_InputField StopOnProfitText;
+    [SerializeField] private TMP_InputField WinProfit;
+
+    [Header("Start Button")]
+    [SerializeField] internal Button StartBet;
+    [SerializeField] private TMP_Text StartBtnText;
+
+    [SerializeField] internal GameObject RaycastBlocker;
+
+
+
+    [Space]
+    [Space]
+    [Space]
+    [Space]
+    [Space]
+    [Header("popup")]
     [SerializeField]
-    private SymbolTextGroup[] SymbolsText;
+    private GameObject PopupPanel;
+    [SerializeField] private Button InfoBtn;
+    [SerializeField] private Button SettingBtn;
 
-    [SerializeField] private SymbolTextGroup ScatterFreeSpinstext;
-    [SerializeField] private List<TMP_Text> InfoMultiplierPageTexts;
-    private void Start()
+
+    [SerializeField] private GameObject Infopanel;
+    [SerializeField] private GameObject ReconectionPopup;
+    [SerializeField] private GameObject DisconectionPopup;
+    [SerializeField] private GameObject LowBalancePopup;
+    [Header("Settings")]
+    [SerializeField] private GameObject SetingPopup;
+    [SerializeField] private Button MusicON;
+    [SerializeField] private Button MusicOF;
+    [SerializeField] private Button SoundON;
+    [SerializeField] private Button SoundOF;
+    [Header("QuitPopup")]
+    [SerializeField] private Button ExitButton;
+    [SerializeField] private GameObject QuitPopup;
+    [SerializeField] private Button Yes;
+    [SerializeField] private Button No;
+
+
+
+    void Start()
     {
-
-        if (Exit_Button) Exit_Button.onClick.RemoveAllListeners();
-        if (Exit_Button) Exit_Button.onClick.AddListener(CloseMenu);
-
-        if (Settings_Button) Settings_Button.onClick.RemoveAllListeners();
-        if (Settings_Button) Settings_Button.onClick.AddListener(delegate { OpenPopup(SettingsPopup_Object); });
-
-
-        if (SettingsExit_Button) SettingsExit_Button.onClick.RemoveAllListeners();
-        if (SettingsExit_Button) SettingsExit_Button.onClick.AddListener(delegate { ClosePopup(SettingsPopup_Object); });
-
-        if (GameExit_Button) GameExit_Button.onClick.RemoveAllListeners();
-        if (GameExit_Button) GameExit_Button.onClick.AddListener(delegate
+        if (AutoBtn)
         {
-            OpenPopup(QuitPopup_Object);
-            Debug.Log("Quit event: pressed Big_X button");
-
-        });
-
-        if (NoQuit_Button) NoQuit_Button.onClick.RemoveAllListeners();
-        if (NoQuit_Button) NoQuit_Button.onClick.AddListener(delegate
-        {
-            if (!isExit)
-            {
-                ClosePopup(QuitPopup_Object);
-                Debug.Log("quit event: pressed NO Button ");
-            }
-        });
-
-        if (CrossQuit_Button) CrossQuit_Button.onClick.RemoveAllListeners();
-        if (CrossQuit_Button) CrossQuit_Button.onClick.AddListener(delegate
-        {
-            if (!isExit)
-            {
-                ClosePopup(QuitPopup_Object);
-                Debug.Log("quit event: pressed Small_X Button ");
-
-            }
-        });
-
-        if (LBExit_Button) LBExit_Button.onClick.RemoveAllListeners();
-        if (LBExit_Button) LBExit_Button.onClick.AddListener(delegate { ClosePopup(LBPopup_Object); });
-
-        if (YesQuit_Button) YesQuit_Button.onClick.RemoveAllListeners();
-        if (YesQuit_Button) YesQuit_Button.onClick.AddListener(delegate
-        {
-            CallOnExitFunction();
-            Debug.Log("quit event: pressed YES Button ");
-
-        });
-
-        if (CloseDisconnect_Button) CloseDisconnect_Button.onClick.RemoveAllListeners();
-        if (CloseDisconnect_Button) CloseDisconnect_Button.onClick.AddListener(delegate { CallOnExitFunction(); socketManager.ReactNativeCallOnFailedToConnect(); }); //BackendChanges
-
-        if (audioController) audioController.ToggleMute(false);
-
-        isMusic = true;
-        isSound = true;
-
-        if (Sound_Button) Sound_Button.onClick.RemoveAllListeners();
-        if (Sound_Button) Sound_Button.onClick.AddListener(ToggleSound);
-
-        if (Music_Button) Music_Button.onClick.RemoveAllListeners();
-        if (Music_Button) Music_Button.onClick.AddListener(ToggleMusic);
-
-        if (SkipWinAnimation) SkipWinAnimation.onClick.RemoveAllListeners();
-        if (SkipWinAnimation) SkipWinAnimation.onClick.AddListener(SkipWin);
-
-        if (SkipFreeSpinAnimation) SkipFreeSpinAnimation.onClick.RemoveAllListeners();
-        if (SkipFreeSpinAnimation) SkipFreeSpinAnimation.onClick.AddListener(SkipFreeSpin);
-
-        infoLeftButton.onClick.AddListener(GoToPreviousInfoPage);
-        infoRightButton.onClick.AddListener(GoToNextInfoPage);
-        infoButton.onClick.AddListener(OpenInfoPanel);
-        infoCloseButton.onClick.AddListener(CloseInfoPanel);
-    }
-
-    internal void LowBalPopup()
-    {
-        OpenPopup(LBPopup_Object);
-    }
-
-    internal void DisconnectionPopup(bool isReconnection)
-    {
-        if (!isExit)
-        {
-            OpenPopup(DisconnectPopup_Object);
+            AutoBtn.onClick.RemoveAllListeners();
+            AutoBtn.onClick.AddListener(() => ToggleAuto(true));
         }
-    }
-
-    internal void PopulateWin(int value, double amount)
-    {
-        BigWin_Gameobject.SetActive(false);
-        HugeWin_Gameobject.SetActive(false);
-        MegaWin_GameObject.SetActive(false);
-
-        switch (value)
+        if (ManualBtn)
         {
-            case 1:
-                BigWin_Gameobject.SetActive(true);
-                break;
-            case 2:
-                HugeWin_Gameobject.SetActive(true);
-                break;
-            case 3:
-                MegaWin_GameObject.SetActive(true);
-                break;
+            ManualBtn.onClick.RemoveAllListeners();
+            ManualBtn.onClick.AddListener(() => ToggleAuto(false));
+        }
+        if (StartBet)
+        {
+            StartBet.onClick.RemoveAllListeners();
+            StartBet.onClick.AddListener(() => gameManager.Startbet());
         }
 
-        StartPopupAnim(amount);
-    }
-
-    private void StartFreeSpins(int spins)
-    {
-        if (MainPopup_Object) MainPopup_Object.SetActive(false);
-        if (FreeSpinPopup_Object) FreeSpinPopup_Object.SetActive(false);
-        if (FreeSpinMainPopup_Object) FreeSpinMainPopup_Object.SetActive(false);
-
-        slotManager.FreeSpin(spins);
-    }
-
-    internal IEnumerator FreeSpinProcess(int spins)
-    {
-        ShowFreeSpin=true;
-        int ExtraSpins = spins - FreeSpins;
-        FreeSpins = spins;
-        Debug.Log("ExtraSpins: " + ExtraSpins);
-        Debug.Log("Total Spins: " + spins);
-        if (FreeSpinMainPopup_Object) FreeSpinMainPopup_Object.SetActive(true);
-        if (FreeSpinPopup_Object) FreeSpinPopup_Object.SetActive(true);
-       // if (Free_Text) Free_Text.text = ExtraSpins.ToString() + " Free spins awarded.";
-        DOVirtual.DelayedCall(2f, () =>
+        if (InfoBtn)
         {
-            ShowFreeSpin=false;
-        });
-        yield return new WaitUntil(() => !ShowFreeSpin);
-        StartFreeSpins(spins);
-
-
-    }
-
-    void SkipFreeSpin()
-    {
-       ShowFreeSpin=false;
-    }
-
-    void SkipWin()
-    {
-        Debug.Log("Skip win called");
-        if (ClosePopupTween != null)
-        {
-            ClosePopupTween.Kill();
-            ClosePopupTween = null;
+            InfoBtn.onClick.RemoveAllListeners();
+            InfoBtn.onClick.AddListener(() => TogglePopup(Infopanel, true));
         }
-        if (WinPopupTextTween != null)
+        if (SettingBtn)
         {
-            WinPopupTextTween.Kill();
-            WinPopupTextTween = null;
+            SettingBtn.onClick.RemoveAllListeners();
+            SettingBtn.onClick.AddListener(() => TogglePopup(SetingPopup, true));
         }
-        ClosePopup(WinPopupMain_Object);
-        slotManager.CheckPopups = false;
-    }
-
-    private void StartPopupAnim(double amount)
-    {
-        double initAmount = 0;
-        if (WinPopupMain_Object) WinPopupMain_Object.SetActive(true);
-        WinPopupTextTween = DOTween.To(() => initAmount, (val) => initAmount = val, amount, 5f).OnUpdate(() =>
+        if (SoundON)
         {
-            if (Win_Text) Win_Text.text = initAmount.ToString("F3");
-        });
-
-        ClosePopupTween = DOVirtual.DelayedCall(6f, () =>
-        {
-            Debug.Log("Delayed call triggered"); // Make sure this logs
-                                                 // ClosePopup(WinPopupMain_Object);
-            WinPopupMain_Object.SetActive(false);
-            slotManager.CheckPopups = false;
-            Debug.Log("CheckPopups false");
-        });
-    }
-
-    internal void ADfunction()
-    {
-       // OpenPopup(ADPopup_Object);
-    }
-
-    internal void InitialiseUIData(string SupportUrl, string AbtImgUrl, string TermsUrl, string PrivacyUrl, Paylines symbolsText)
-    {
-        StartCoroutine(DownloadImage(AbtImgUrl));
-        PopulateSymbolsPayout(symbolsText);
-
-        SetMultiplierinfo();
-    }
-
-    private void PopulateSymbolsPayout(Paylines paylines)
-    {
-        int count = 0;
-        for (int i = 0; i < SymbolsText.Length; i++)
-        {
-            var symbol = paylines.symbols[i];
-
-            if (symbol.Multiplier[0][0] != 0)
-            {
-                SymbolsText[i].Text5x.text = symbol.Multiplier[0][0].ToString();
-            }
-            else
-            {
-                SymbolsText[i].Text5x.text = "";
-            }
-
-            if (symbol.Multiplier[1][0] != 0)
-            {
-                SymbolsText[i].Text4x.text = symbol.Multiplier[1][0].ToString();
-            }
-            else
-            {
-                SymbolsText[i].Text4x.text = "";
-            }
-
-            if (symbol.Multiplier[2][0] != 0)
-            {
-                SymbolsText[i].Text3x.text = symbol.Multiplier[2][0].ToString();
-            }
-            else
-            {
-                SymbolsText[i].Text3x.text = "";
-            }
-
-            Debug.Log("Symbol info: " + symbol.Name);
+            SoundON.onClick.AddListener(() => SoundToggle(true));
         }
-
-
-        for (int i = 0; i < paylines.symbols.Count; i++)
+        if (SoundOF)
         {
-            if (paylines.symbols[i].Name.ToUpper() == "SCATTER")
-            {
-                string Description = paylines.symbols[i].description.ToString();
+            SoundOF.onClick.AddListener(() => SoundToggle(false));
+        }
+        if (MusicON)
+        {
+            MusicON.onClick.AddListener(() => MusicToggle(true));
+        }
+        if (MusicOF)
+        {
+            MusicOF.onClick.AddListener(() => MusicToggle(false));
+        }
+        if (ExitButton) ExitButton.onClick.AddListener(() => CallOnExitFunction());
 
-                string modifiedDescription = Description.Replace("\n ", "\n<sprite=0>");
-                if (Scatter_Text) Scatter_Text.text = "<sprite=0>" + modifiedDescription;
-                ScatterFreeSpinstext.Text5x.text = paylines.symbols[i].Multiplier[0][1].ToString() + " FREE SPINS";
-                ScatterFreeSpinstext.Text4x.text = paylines.symbols[i].Multiplier[1][1].ToString() + " FREE SPINS";
-                ScatterFreeSpinstext.Text3x.text = paylines.symbols[i].Multiplier[2][1].ToString() + " FREE SPINS";
-            }
-            if (paylines.symbols[i].Name.ToUpper() == "BLUEWILD")
-            {
-                if (BlueWild_Text) BlueWild_Text.text = paylines.symbols[i].description.ToString();
-            }
+        MinesSlider.onValueChanged.AddListener(OnSliderValueChanged);
+        OnSliderValueChanged(MinesSlider.value);
 
-            if (paylines.symbols[i].Name.ToUpper() == "GOLDWILD")
-            {
-                string Description = paylines.symbols[i].description.ToString();
 
-                string modifiedDescription = Description.Replace("\n", "\n<sprite=0>");
-                if (GoldWild_Text) GoldWild_Text.text = "<sprite=0>" + modifiedDescription;
-            }
+    }
+
+    private void SoundToggle(bool on)
+    {
+        if (on)
+        {
+            audioController.muteAudio = false;
+            SoundON.gameObject.SetActive(false);
+            SoundOF.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            audioController.muteAudio = true;
+            SoundON.gameObject.SetActive(true);
+            SoundOF.gameObject.SetActive(false);
         }
     }
-    private void SetMultiplierinfo()
+    private void MusicToggle(bool on)
     {
-        Debug.Log("Set value : 1 count: " + socketManager.initialData.FeatureMults.Count);
-        Debug.Log("InfoMultiplierPageTexts Count: " + InfoMultiplierPageTexts.Count);
-
-        int count = Mathf.Min(socketManager.initialData.FeatureMults.Count, InfoMultiplierPageTexts.Count);
-
-        for (int i = 0; i < count; i++)
+        if (on)
         {
-            Debug.Log("Set value : 2  " + socketManager.initialData.FeatureMults[i]);
-            InfoMultiplierPageTexts[i].text = socketManager.initialData.FeatureMults[i].ToString();
+            audioController.muteMusic = false;
+            MusicON.gameObject.SetActive(false);
+            MusicOF.gameObject.SetActive(true);
+
         }
+        else
+        {
+            audioController.muteMusic = true;
+            MusicON.gameObject.SetActive(true);
+            MusicOF.gameObject.SetActive(false);
+        }
+    }
+    internal void ShowLowbalancePopup()
+    {
+        OnClickCloseButton();
+        TogglePopup(Infopanel, true);
+    }
+    #region panels
+    public void OnClickCloseButton()
+    {
+        audioController.PlayWLAudio("button");
+
+        if (Infopanel.activeInHierarchy) TogglePopup(Infopanel, false);
+        if (ReconectionPopup.activeInHierarchy) TogglePopup(ReconectionPopup, false);
+        if (DisconectionPopup.activeInHierarchy) TogglePopup(DisconectionPopup, false);
+        if (LowBalancePopup.activeInHierarchy) TogglePopup(LowBalancePopup, false);
+        if (SetingPopup.activeInHierarchy) TogglePopup(SetingPopup, false);
+
+    }
+    public void TogglePopup(GameObject panel, bool setActive)
+    {
+        // OnClickCloseButton();
+        PopupPanel.SetActive(setActive);
+        panel.SetActive(setActive);
+
     }
 
 
-    private void CallOnExitFunction()
+
+
+
+
+
+    #endregion
+
+
+
+    public void CallOnExitFunction()
     {
-        isExit = true;
+
         audioController.PlayButtonAudio();
-        slotManager.CallCloseSocket();
-
+        StartCoroutine(socketManager.CloseSocket());
+        // Application.ExternalCall("window.parent.postMessage", "onExit", "*");
     }
 
-    private void OpenMenu()
+    internal void SetInitData()
     {
-        audioController.PlayButtonAudio();
-        if (Exit_Object) Exit_Object.SetActive(true);
-        //if (About_Object) About_Object.SetActive(true);
-        if (Paytable_Object) Paytable_Object.SetActive(true);
-        //DOTween.To(() => About_RT.anchoredPosition, (val) => About_RT.anchoredPosition = val, new Vector2(About_RT.anchoredPosition.x, About_RT.anchoredPosition.y + 150), 0.1f).OnUpdate(() =>
-        //{
-        //    LayoutRebuilder.ForceRebuildLayoutImmediate(About_RT);
-        //});
+        List<string> stringOptions = socketManager.InitialData.bets.Select(n => n.ToString()).ToList();
 
-        DOTween.To(() => Paytable_RT.anchoredPosition, (val) => Paytable_RT.anchoredPosition = val, new Vector2(Paytable_RT.anchoredPosition.x, Paytable_RT.anchoredPosition.y + 125), 0.1f).OnUpdate(() =>
+        // Clear old options
+        BetAmountDropDown.ClearOptions();
+
+        // Add to dropdown
+        BetAmountDropDown.AddOptions(stringOptions);
+
+        playerBalanceText.text = socketManager.PlayerData.balance.ToString();
+    }
+
+    void OnSliderValueChanged(float value)
+    {
+        int intValue = Mathf.RoundToInt(value);
+        DiamondAmount.text = (25 - intValue).ToString();
+        BombAmount.text = intValue.ToString();
+        gameManager.CurrentBombNo = intValue;
+    }
+
+
+    void ToggleAuto(bool isAuto)
+    {
+        if (gameManager.isbetInProgress) return;
+
+        gameManager.HardReset();
+
+        audioController.PlayWLAudio("button");
+        Debug.Log("isAuto" + isAuto);
+        gameManager.isAuto = isAuto;
+        if (isAuto)
         {
-            LayoutRebuilder.ForceRebuildLayoutImmediate(Paytable_RT);
-        });
-
-    }
-
-    private void CloseMenu()
-    {
-
-        if (audioController) audioController.PlayButtonAudio();
-        //DOTween.To(() => About_RT.anchoredPosition, (val) => About_RT.anchoredPosition = val, new Vector2(About_RT.anchoredPosition.x, About_RT.anchoredPosition.y - 150), 0.1f).OnUpdate(() =>
-        //{
-        //    LayoutRebuilder.ForceRebuildLayoutImmediate(About_RT);
-        //});
-
-        DOTween.To(() => Paytable_RT.anchoredPosition, (val) => Paytable_RT.anchoredPosition = val, new Vector2(Paytable_RT.anchoredPosition.x, Paytable_RT.anchoredPosition.y - 125), 0.1f).OnUpdate(() =>
-        {
-            LayoutRebuilder.ForceRebuildLayoutImmediate(Paytable_RT);
-        });
-
-        DOVirtual.DelayedCall(0.1f, () =>
-         {
-             if (Exit_Object) Exit_Object.SetActive(false);
-             //if (About_Object) About_Object.SetActive(false);
-             if (Paytable_Object) Paytable_Object.SetActive(false);
-         });
-    }
-
-    private void OpenPopup(GameObject Popup)
-    {
-        if (audioController) audioController.PlayButtonAudio();
-        if (Popup) Popup.SetActive(true);
-        if (MainPopup_Object) MainPopup_Object.SetActive(true);
-    }
-
-    private void ClosePopup(GameObject Popup)
-    {
-        if (audioController) audioController.PlayButtonAudio();
-        if (Popup) Popup.SetActive(false);
-        if (!DisconnectPopup_Object.activeSelf)
-        {
-            if (MainPopup_Object) MainPopup_Object.SetActive(false);
-        }
-    }
-
-    private void ToggleMusic()
-    {
-       if (audioController) audioController.PlayButtonAudio();
-        Image musicImage = Music_Button.gameObject.GetComponent<Image>();
-        isMusic = !isMusic;
-        if (isMusic)
-        {
-            musicImage.sprite = Enable_Sound_sprite;
-            audioController.ToggleMute(false, "bg");
-        }
-        else
-        {
-            musicImage.sprite = Disable_Sound_sprite;
-            audioController.ToggleMute(true, "bg");
-        }
-    }
-
-    private void UrlButtons(string url)
-    {
-        Application.OpenURL(url);
-    }
-
-    private void ToggleSound()
-    {
-       if (audioController) audioController.PlayButtonAudio();
-        Image musicImage = Sound_Button.gameObject.GetComponent<Image>();
-        isSound = !isSound;
-        if (isSound)
-        {
-            if (audioController) audioController.ToggleMute(false, "button");
-            if (audioController) audioController.ToggleMute(false, "wl");
-            musicImage.sprite = Enable_Sound_sprite;
+            toglePanel.transform.position = AutoBtn.transform.position;
+            RaycastBlocker.SetActive(false);
+            gameManager.SetOptionintractable(true);
+            StartBtnText.text = "Start AutoBet";
 
         }
         else
         {
-            if (audioController) audioController.ToggleMute(true, "button");
-            if (audioController) audioController.ToggleMute(true, "wl");
-            musicImage.sprite = Disable_Sound_sprite;
-
+            toglePanel.transform.position = ManualBtn.transform.position;
+            RaycastBlocker.SetActive(true);
+            StartBtnText.text = "Start Bet";
         }
+
+        gameManager.isbetInProgress = false;
+        NoOFBets.SetActive(isAuto);
+        StopOnProfit.SetActive(isAuto);
+        StopOnLoss.SetActive(isAuto);
     }
 
-    private IEnumerator DownloadImage(string url)
+    internal void SetStartButtonText(string BtnText)
     {
-        // Create a UnityWebRequest object to download the image
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
-
-        // Wait for the download to complete
-        yield return request.SendWebRequest();
-
-        // Check for errors
-        if (request.result == UnityWebRequest.Result.Success)
-        {
-            Texture2D texture = DownloadHandlerTexture.GetContent(request);
-
-            Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-
-            // Apply the sprite to the target image
-        }
-        else
-        {
-            Debug.LogError("Error downloading image: " + request.error);
-        }
-    }
-
-    private void OpenInfoPanel()
-    {
-         if (audioController) audioController.PlayButtonAudio();
-        infoPanel.SetActive(true);
-        UpdateInfoUI();
-    }
-
-    private void CloseInfoPanel()
-    {
-        if (audioController) audioController.PlayButtonAudio();
-
-        currentPage = 0;
-        infoPanel.SetActive(false);
-    }
-
-    private void UpdateInfoUI()
-    {
-        for (int i = 0; i < infoPages.Count; i++)
-            infoPages[i].SetActive(i == currentPage);
-
-        for (int i = 0; i < infoInnerDots.Count; i++)
-            infoInnerDots[i].SetActive(i == currentPage);
-
-    }
-
-    private void GoToPreviousInfoPage()
-    {
-        if (audioController) audioController.PlayButtonAudio();
-        currentPage--;
-        if (currentPage < 0)
-            currentPage = infoPages.Count - 1;
-
-        UpdateInfoUI();
-    }
-
-    private void GoToNextInfoPage()
-    {
-        if (audioController) audioController.PlayButtonAudio();
-        currentPage++;
-        if (currentPage >= infoPages.Count)
-            currentPage = 0;
-
-        UpdateInfoUI();
+        StartBtnText.text = BtnText;
     }
 
 }
 
-[System.Serializable]
-public class SymbolTextGroup
-{
-    public TMP_Text Text5x;
-    public TMP_Text Text4x;
-    public TMP_Text Text3x;
-}
