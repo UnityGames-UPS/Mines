@@ -27,7 +27,6 @@ public class UIManager : MonoBehaviour
     [Header("Fields")]
     [SerializeField] private GameObject BetAmount;
     [SerializeField] private GameObject NoOfMines;
-    [SerializeField] private GameObject NoOFBets;
     [SerializeField] private GameObject StopOnProfit;
     [SerializeField] private GameObject StopOnLoss;
 
@@ -48,8 +47,8 @@ public class UIManager : MonoBehaviour
 
 
     [Header("Stop Loss")]
-    [SerializeField] private TMP_InputField StopOnProfitText;
-    [SerializeField] private TMP_InputField WinProfit;
+    [SerializeField] internal TMP_InputField StopOnProfitText;
+    [SerializeField] internal TMP_InputField StopOnLossText;
 
     [Header("Start Button")]
     [SerializeField] internal Button StartBet;
@@ -57,7 +56,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] internal GameObject RaycastBlocker;
 
-
+    [Header("InputBlocker")]
+    [SerializeField] internal GameObject ManualInputBlocker;
+    [SerializeField] internal GameObject AutoInputBlocker;
 
     [Space]
     [Space]
@@ -110,12 +111,15 @@ public class UIManager : MonoBehaviour
         if (InfoBtn)
         {
             InfoBtn.onClick.RemoveAllListeners();
-            InfoBtn.onClick.AddListener(() => TogglePopup(Infopanel, true));
+            InfoBtn.onClick.AddListener(() => { TogglePopup(Infopanel, true); audioController.PlayWLAudio("button"); });
         }
         if (SettingBtn)
         {
             SettingBtn.onClick.RemoveAllListeners();
-            SettingBtn.onClick.AddListener(() => TogglePopup(SetingPopup, true));
+            SettingBtn.onClick.AddListener(() =>
+            {
+                TogglePopup(SetingPopup, true); audioController.PlayWLAudio("button");
+            });
         }
         if (SoundON)
         {
@@ -143,32 +147,34 @@ public class UIManager : MonoBehaviour
 
     private void SoundToggle(bool on)
     {
+        audioController.PlayWLAudio("button");
         if (on)
         {
-            audioController.muteAudio = false;
+            audioController.muteAudio = true;
             SoundON.gameObject.SetActive(false);
             SoundOF.gameObject.SetActive(true);
 
         }
         else
         {
-            audioController.muteAudio = true;
+            audioController.muteAudio = false;
             SoundON.gameObject.SetActive(true);
             SoundOF.gameObject.SetActive(false);
         }
     }
     private void MusicToggle(bool on)
     {
+        audioController.PlayWLAudio("button");
         if (on)
         {
-            audioController.muteMusic = false;
+            audioController.bg_adudio.Pause();
             MusicON.gameObject.SetActive(false);
             MusicOF.gameObject.SetActive(true);
 
         }
         else
         {
-            audioController.muteMusic = true;
+            audioController.bg_adudio.Play();
             MusicON.gameObject.SetActive(true);
             MusicOF.gameObject.SetActive(false);
         }
@@ -176,7 +182,7 @@ public class UIManager : MonoBehaviour
     internal void ShowLowbalancePopup()
     {
         OnClickCloseButton();
-        TogglePopup(Infopanel, true);
+        TogglePopup(LowBalancePopup, true);
     }
     #region panels
     public void OnClickCloseButton()
@@ -199,9 +205,20 @@ public class UIManager : MonoBehaviour
     }
 
 
+    internal void CheckAndClosePopups()
+    {
+        OnClickCloseButton();
+    }
 
+    internal void ReconnectionPopup()
+    {
+        TogglePopup(ReconectionPopup, true);
+    }
+    internal void DisconnectionPopup()
+    {
+        TogglePopup(DisconectionPopup, true);
 
-
+    }
 
 
     #endregion
@@ -263,7 +280,7 @@ public class UIManager : MonoBehaviour
         }
 
         gameManager.isbetInProgress = false;
-        NoOFBets.SetActive(isAuto);
+        // NoOFBets.SetActive(isAuto);
         StopOnProfit.SetActive(isAuto);
         StopOnLoss.SetActive(isAuto);
     }

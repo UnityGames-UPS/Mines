@@ -40,7 +40,7 @@ public class SocketIOManager : MonoBehaviour
     [SerializeField]
     private string testToken;
 
-    protected string gameID = "SL-ZML";
+    protected string gameID = "KN-MN";
     // protected string gameID = "";
     private const int maxReconnectionAttempts = 6;
     private readonly TimeSpan reconnectionDelay = TimeSpan.FromSeconds(10);
@@ -283,7 +283,7 @@ public class SocketIOManager : MonoBehaviour
 
             if (missedPongs == 0)
             {
-                //  uiManager.CheckAndClosePopups();
+                uiManager.CheckAndClosePopups();
             }
 
             // If waiting for pong, and timeout passed
@@ -291,7 +291,7 @@ public class SocketIOManager : MonoBehaviour
             {
                 if (missedPongs == 2)
                 {
-                    //    uiManager.ReconnectionPopup();
+                    uiManager.ReconnectionPopup();
                 }
                 missedPongs++;
                 Debug.LogWarning($"⚠️ Pong missed #{missedPongs}/{MaxMissedPongs}");
@@ -300,7 +300,7 @@ public class SocketIOManager : MonoBehaviour
                 {
                     Debug.LogError("❌ Unable to connect to server — 5 consecutive pongs missed.");
                     isConnected = false;
-                    //  uiManager.DisconnectionPopup();
+                    uiManager.DisconnectionPopup();
                     yield break;
                 }
             }

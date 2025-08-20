@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     internal bool autoLooping = false;
     internal int CurrentBombNo = 1;
     internal List<int> selectedOptions = new List<int>();
-
+    internal double TotalPLInAuto;
 
     void Start()
     {
@@ -51,10 +51,17 @@ public class GameManager : MonoBehaviour
     }
     internal void Startbet()
     {
+        if (socketManager.PlayerData.balance - socketManager.InitialData.bets[uiManager.BetAmountDropDown.value] < 0)
+        {
+            uiManager.ShowLowbalancePopup();
+            return;
+        }
+        audioController.PlayWLAudio("start");
         if (!isAuto)
         {
             if (!isbetInProgress)
             {
+                uiManager.ManualInputBlocker.SetActive(true);
                 Debug.Log("DingDing");
                 isbetInProgress = true;
                 SetOptionintractable(true);
@@ -64,9 +71,10 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                uiManager.ManualInputBlocker.SetActive(false);
                 socketManager.AccumulateResult("CASH");
                 uiManager.RaycastBlocker.SetActive(true);
-                isbetInProgress = false;
+                // isbetInProgress = false;
                 uiManager.StartBet.interactable = false;
             }
         }
@@ -74,7 +82,6 @@ public class GameManager : MonoBehaviour
         {
             if (!isbetInProgress)
             {
-
 
                 selectedOptions.Clear();
                 foreach (var obj in optionsBtn)
@@ -86,6 +93,7 @@ public class GameManager : MonoBehaviour
                 }
                 if (selectedOptions.Count != 0)
                 {
+                    uiManager.AutoInputBlocker.SetActive(true);
 
                     isbetInProgress = true;
                     uiManager.RaycastBlocker.SetActive(true);
@@ -99,14 +107,12 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                uiManager.SetStartButtonText("START AUTOBET");
-
-                isbetInProgress = false;
+                uiManager.AutoInputBlocker.SetActive(false);
+                uiManager.StartBet.interactable = false;
 
                 autoLooping = false;
 
                 uiManager.RaycastBlocker.SetActive(false);
-
 
 
             }
@@ -117,6 +123,11 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Autobet()
     {
+        if (socketManager.PlayerData.balance - socketManager.InitialData.bets[uiManager.BetAmountDropDown.value] < 0)
+        {
+            uiManager.ShowLowbalancePopup();
+            yield break;
+        }
         socketManager.isResultdone = false;
         socketManager.AccumulateResult("AT");
 
@@ -145,8 +156,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ResetMineField(1f));
         uiManager.RaycastBlocker.SetActive(true);
         uiManager.SetStartButtonText("STOP  " + socketManager.ResultData.payload.currentWinning.ToString());
+        checkForStopLoss();
         yield return new WaitForSeconds(3f);
         uiManager.playerBalanceText.text = socketManager.PlayerData.balance.ToString();
+        TotalPLInAuto += socketManager.ResultData.payload.currentWinning - socketManager.InitialData.bets[uiManager.BetAmountDropDown.value];
+
 
         //if (socketManager.ResultData.payload.isCashOut) yield break;
         if (autoLooping)
@@ -155,8 +169,16 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //  socketManager.AccumulateResult("CASH");
+            //  socke
+            // uiManager.AutoInputBlocker.SetActive(false);tManager.AccumulateResult("CASH");
             isbetInProgress = false;
+
+            uiManager.AutoInputBlocker.SetActive(false);
+            TotalPLInAuto = 0;
+
+
+            uiManager.SetStartButtonText("START AUTOBET");
+            uiManager.StartBet.interactable = true;
             foreach (var obj in optionsBtn)
             {
 
@@ -165,7 +187,29 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    void checkForStopLoss()
+    {
 
+        if (double.TryParse(uiManager.StopOnProfitText.text, out double value))
+        {
+            if (value != 0 && value <= TotalPLInAuto)
+            {
+
+                autoLooping = false;
+                uiManager.RaycastBlocker.SetActive(false);
+            }
+        }
+        if (double.TryParse(uiManager.StopOnLossText.text, out double val))
+        {
+            if (val != 0 && val <= TotalPLInAuto * -1)
+            {
+
+                autoLooping = false;
+                uiManager.RaycastBlocker.SetActive(false);
+            }
+        }
+
+    }
     private bool isBetvalid(double currentprojectedBet, bool showPopup = true)
     {
         if (socketManager.PlayerData.balance >= currentprojectedBet)
@@ -191,7 +235,10 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    internal void PlayMineSelectAudio()
+    {
+        audioController.PlayWLAudio("b2");
+    }
     internal void OnResultSucess()
     {
         if (isAuto)
@@ -201,11 +248,13 @@ public class GameManager : MonoBehaviour
         }
         if (!socketManager.ResultData.payload.isCashOut)
         {
+
             uiManager.SetStartButtonText("CASH OUT  " + socketManager.ResultData.payload.currentWinning.ToString());
             uiManager.StartBet.interactable = true;
 
             if (!socketManager.ResultData.payload.isMine)
             {
+                audioController.PlayWLAudio("diamond");
                 SetOptionintractable(true);
                 foreach (int c in selectedOptions)
                 {
@@ -214,6 +263,8 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                uiManager.ManualInputBlocker.SetActive(false);
+                audioController.PlayWLAudio("bomb");
                 for (int i = 0; i < optionsBtn.Count; i++)
                 {
                     int x = i + 1;
@@ -229,16 +280,17 @@ public class GameManager : MonoBehaviour
                 }
                 StartCoroutine(ResetMineField());
                 uiManager.RaycastBlocker.SetActive(true);
-                isbetInProgress = false;
+                //  isbetInProgress = false;
                 uiManager.StartBet.interactable = false;
             }
         }
         else
         {
+
             for (int i = 0; i < optionsBtn.Count; i++)
             {
                 int x = i + 1;
-                Debug.Log(x + ".    ." + socketManager.ResultData.payload.mines.Contains(x) + ".    .");
+                //                Debug.Log(x + ".    ." + socketManager.ResultData.payload.mines.Contains(x) + ".    .");
                 if (socketManager.ResultData.payload.mines.Contains(x))
                 {
                     optionsBtn[i].SetResult("bomb");
@@ -250,7 +302,7 @@ public class GameManager : MonoBehaviour
             }
             StartCoroutine(ResetMineField());
             uiManager.RaycastBlocker.SetActive(true);
-            isbetInProgress = false;
+
         }
         uiManager.playerBalanceText.text = socketManager.PlayerData.balance.ToString();
     }
@@ -259,12 +311,13 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
         SetOptionintractable(false);
-        uiManager.StartBet.interactable = true;
+        if (!isAuto) uiManager.StartBet.interactable = true;
         for (int i = 0; i < optionsBtn.Count; i++)
         {
             optionsBtn[i].ResetAll();
         }
         if (!isAuto) uiManager.SetStartButtonText("START BET");
+        if (!isAuto) isbetInProgress = false;
     }
 
     internal void HardReset()

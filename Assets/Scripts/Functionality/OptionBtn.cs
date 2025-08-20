@@ -42,7 +42,7 @@ public class OptionBtn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
         if (gameManager.isAuto)
         {
-
+            gameManager.PlayMineSelectAudio();
             if (!isSelectedForAuto)
             {
                 isSelectedForAuto = true;

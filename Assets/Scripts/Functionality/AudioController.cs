@@ -5,7 +5,7 @@ using System;
 
 public class AudioController : MonoBehaviour
 {
-    [SerializeField] private AudioSource bg_adudio;
+    [SerializeField] internal AudioSource bg_adudio;
     [SerializeField] internal AudioSource audioPlayer_wl;
     [SerializeField] internal AudioSource audioPlayer_button;
     [SerializeField] internal AudioSource audioSpin_button;
@@ -13,7 +13,7 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip[] Bonusclips;
 
     internal bool muteAudio = false;
-    internal bool muteMusic = true;
+    internal bool muteMusic = false;
 
     private void Start()
     {
@@ -74,7 +74,7 @@ public class AudioController : MonoBehaviour
             case "button":
                 index = 1;
                 break;
-            case "mine":
+            case "b2":
                 index = 2;
                 break;
             case "diamond":
