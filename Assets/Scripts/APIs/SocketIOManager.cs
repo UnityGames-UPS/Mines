@@ -68,6 +68,15 @@ public class SocketIOManager : MonoBehaviour
         // Debug.unityLogger.logEnabled = false;
         OpenSocket();
     }
+    void ReceiveAuthToken(string jsonData)
+    {
+        Debug.Log("Received data: " + jsonData);
+        // Do something with the authToken
+        var data = JsonUtility.FromJson<AuthTokenData>(jsonData);
+        SocketURI = data.socketURL;
+        myAuth = data.cookie;
+        nameSpace = data.nameSpace;
+    }
 
     string myAuth = null;
 
@@ -200,6 +209,7 @@ public class SocketIOManager : MonoBehaviour
     private void OnDisconnected() //Back2 Start
     {
         Debug.LogWarning("⚠️ Disconnected from server.");
+        uiManager.DisconnectionPopup();
         isConnected = false;
         ResetPingRoutine();
     } //Back2 end
@@ -536,4 +546,11 @@ public class Payload
     public List<int> mines { get; set; }
     public bool isMine { get; set; }
     public bool isCashOut { get; set; }
+}
+[Serializable]
+public class AuthTokenData
+{
+    public string cookie;
+    public string socketURL;
+    public string nameSpace; //BackendChanges
 }

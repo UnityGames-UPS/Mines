@@ -125,19 +125,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2979912397795845050}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2366766809040141517}
-        m_TargetAssemblyTypeName: OptionBtn, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2366766809040141517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,7 +285,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1329517975, guid: 0fa23263432c44373a4590fb02850462, type: 3}
+  m_Sprite: {fileID: -956166122, guid: aaa53cb73a9194f1cbe5c776020f4179, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -372,7 +360,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 760083197, guid: 0fa23263432c44373a4590fb02850462, type: 3}
+  m_Sprite: {fileID: 560745241, guid: aaa53cb73a9194f1cbe5c776020f4179, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -447,7 +435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -398020605, guid: 0fa23263432c44373a4590fb02850462, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a97a09124e684d22a9a1588bd353aa7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

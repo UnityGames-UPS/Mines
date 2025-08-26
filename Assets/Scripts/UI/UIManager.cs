@@ -85,9 +85,18 @@ public class UIManager : MonoBehaviour
     [Header("QuitPopup")]
     [SerializeField] private Button ExitButton;
     [SerializeField] private GameObject QuitPopup;
-    [SerializeField] private Button Yes;
-    [SerializeField] private Button No;
+    [SerializeField] private Button YesBtn;
+    [SerializeField] private Button NoBtn;
 
+
+    [Header("Toast")]
+    public Image toastImage;    // Your toast background image
+    public TMP_Text toastText;      // Your toast text
+    public float duration = 3f; // Time before it disappears
+    public float moveDistance = 10f;
+    private Vector3 ToststartPos;
+
+    private Tween activeTween;
 
 
     void Start()
@@ -137,12 +146,21 @@ public class UIManager : MonoBehaviour
         {
             MusicOF.onClick.AddListener(() => MusicToggle(false));
         }
-        if (ExitButton) ExitButton.onClick.AddListener(() => CallOnExitFunction());
+        if (YesBtn)
+        {
+            YesBtn.onClick.RemoveAllListeners();
+            YesBtn.onClick.AddListener(() => CallOnExitFunction());
+        }
+        if (NoBtn)
+        {
+            NoBtn.onClick.AddListener(() => OnClickCloseButton());
+        }
+        if (ExitButton) ExitButton.onClick.AddListener(() => OnClickExitButton());
 
         MinesSlider.onValueChanged.AddListener(OnSliderValueChanged);
         OnSliderValueChanged(MinesSlider.value);
 
-
+        ToststartPos = toastImage.transform.localPosition;
     }
 
     private void SoundToggle(bool on)
@@ -181,7 +199,7 @@ public class UIManager : MonoBehaviour
     }
     internal void ShowLowbalancePopup()
     {
-        OnClickCloseButton();
+
         TogglePopup(LowBalancePopup, true);
     }
     #region panels
@@ -194,6 +212,7 @@ public class UIManager : MonoBehaviour
         if (DisconectionPopup.activeInHierarchy) TogglePopup(DisconectionPopup, false);
         if (LowBalancePopup.activeInHierarchy) TogglePopup(LowBalancePopup, false);
         if (SetingPopup.activeInHierarchy) TogglePopup(SetingPopup, false);
+        if (QuitPopup.activeInHierarchy) TogglePopup(QuitPopup, false);
 
     }
     public void TogglePopup(GameObject panel, bool setActive)
@@ -207,7 +226,8 @@ public class UIManager : MonoBehaviour
 
     internal void CheckAndClosePopups()
     {
-        OnClickCloseButton();
+        if (ReconectionPopup.activeInHierarchy) TogglePopup(ReconectionPopup, false);
+        if (DisconectionPopup.activeInHierarchy) TogglePopup(DisconectionPopup, false);
     }
 
     internal void ReconnectionPopup()
@@ -224,7 +244,12 @@ public class UIManager : MonoBehaviour
     #endregion
 
 
+    void OnClickExitButton()
+    {
 
+        // CallOnExitFunction();
+        TogglePopup(QuitPopup, true);
+    }
     public void CallOnExitFunction()
     {
 
@@ -252,6 +277,7 @@ public class UIManager : MonoBehaviour
         DiamondAmount.text = (25 - intValue).ToString();
         BombAmount.text = intValue.ToString();
         gameManager.CurrentBombNo = intValue;
+        gameManager.HardReset();
     }
 
 
@@ -290,5 +316,50 @@ public class UIManager : MonoBehaviour
         StartBtnText.text = BtnText;
     }
 
+    #region Toast
+
+    public void ShowToast(string message)
+    {
+        toastText.text = message;
+        toastImage.gameObject.SetActive(true);
+
+        // 🔹 Kill any old tweens on these objects
+        toastImage.DOKill();
+        toastText.DOKill();
+        toastImage.gameObject.transform.DOKill();
+
+        // 🔹 Reset position
+        toastImage.gameObject.transform.localPosition = ToststartPos;
+
+        // 🔹 Reset alpha to 1
+        SetAlpha(1f);
+
+        // 🔹 Animate move up
+        toastImage.gameObject.transform.DOLocalMoveY(moveDistance, duration)
+            .SetEase(Ease.OutQuad);
+
+        // 🔹 Animate fade out
+        toastImage.DOFade(0, 1f)
+            .SetDelay(duration - 1f);
+
+        toastText.DOFade(0, 1f)
+            .SetDelay(duration - 1f)
+            .OnComplete(() =>
+            {
+                toastImage.gameObject.SetActive(false);
+            });
+    }
+    private void SetAlpha(float a)
+    {
+        if (toastImage != null)
+            toastImage.color = new Color(toastImage.color.r, toastImage.color.g, toastImage.color.b, a);
+
+        if (toastText != null)
+            toastText.color = new Color(toastText.color.r, toastText.color.g, toastText.color.b, a);
+    }
+
+
+
+    #endregion
 }
 

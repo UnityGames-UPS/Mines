@@ -42,9 +42,16 @@ public class OptionBtn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
         if (gameManager.isAuto)
         {
+
+
             gameManager.PlayMineSelectAudio();
             if (!isSelectedForAuto)
             {
+                if (!gameManager.LogicalClick())
+                {
+                    gameManager.ShowToast("Can not select more than number of Diamonds");
+                    return;
+                }
                 isSelectedForAuto = true;
                 isopend = true;
                 // btn.interactable = false;

@@ -210,18 +210,6 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    private bool isBetvalid(double currentprojectedBet, bool showPopup = true)
-    {
-        if (socketManager.PlayerData.balance >= currentprojectedBet)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-            if (showPopup) uiManager.ShowLowbalancePopup();
-        }
-    }
 
     internal void OnoptionClicked(int index)
     {
@@ -332,4 +320,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    internal bool LogicalClick()
+    {
+        int count = 0;
+        foreach (var opt in optionsBtn)
+        {
+            if (opt.isSelectedForAuto) count++;
+        }
+        Debug.Log("ASHU Test: " + (25 - CurrentBombNo) + ".   ." + count);
+        if (24 - CurrentBombNo >= count)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    internal void ShowToast(string message)
+    {
+        Debug.Log("ASHU Test: " + ". Toast  ." + message);
+        uiManager.ShowToast(message);
+    }
 }
