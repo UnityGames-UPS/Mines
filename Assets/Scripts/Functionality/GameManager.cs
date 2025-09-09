@@ -51,18 +51,19 @@ public class GameManager : MonoBehaviour
     }
     internal void Startbet()
     {
-        if (socketManager.PlayerData.balance - socketManager.InitialData.bets[uiManager.BetAmountDropDown.value] < 0)
-        {
-            uiManager.ShowLowbalancePopup();
-            return;
-        }
+
         audioController.PlayWLAudio("start");
         if (!isAuto)
         {
             if (!isbetInProgress)
             {
+                if (socketManager.PlayerData.balance - socketManager.InitialData.bets[uiManager.BetAmountDropDown.value] < 0)
+                {
+                    uiManager.ShowLowbalancePopup();
+                    return;
+                }
                 uiManager.ManualInputBlocker.SetActive(true);
-                Debug.Log("DingDing");
+
                 isbetInProgress = true;
                 SetOptionintractable(true);
                 uiManager.RaycastBlocker.SetActive(false);
@@ -82,6 +83,11 @@ public class GameManager : MonoBehaviour
         {
             if (!isbetInProgress)
             {
+                if (socketManager.PlayerData.balance - socketManager.InitialData.bets[uiManager.BetAmountDropDown.value] < 0)
+                {
+                    uiManager.ShowLowbalancePopup();
+                    return;
+                }
 
                 selectedOptions.Clear();
                 foreach (var obj in optionsBtn)
@@ -189,25 +195,26 @@ public class GameManager : MonoBehaviour
     }
     void checkForStopLoss()
     {
+        float value = float.Parse(uiManager.StopOnProfitText.options[uiManager.StopOnProfitText.value].text); ;
+        float val = float.Parse(uiManager.StopOnLossText.options[uiManager.StopOnLossText.value].text); ;
+        // int val = uiManager.StopOnLossText.value;
 
-        if (double.TryParse(uiManager.StopOnProfitText.text, out double value))
+
+        if (value != 0 && value <= TotalPLInAuto)
         {
-            if (value != 0 && value <= TotalPLInAuto)
-            {
 
-                autoLooping = false;
-                uiManager.RaycastBlocker.SetActive(false);
-            }
+            autoLooping = false;
+            uiManager.RaycastBlocker.SetActive(false);
         }
-        if (double.TryParse(uiManager.StopOnLossText.text, out double val))
+
+
+        if (val != 0 && val <= TotalPLInAuto * -1)
         {
-            if (val != 0 && val <= TotalPLInAuto * -1)
-            {
 
-                autoLooping = false;
-                uiManager.RaycastBlocker.SetActive(false);
-            }
+            autoLooping = false;
+            uiManager.RaycastBlocker.SetActive(false);
         }
+
 
     }
 

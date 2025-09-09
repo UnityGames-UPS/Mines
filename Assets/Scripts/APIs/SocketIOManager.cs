@@ -394,6 +394,7 @@ public class SocketIOManager : MonoBehaviour
 
     internal IEnumerator CloseSocket() //Back2 Start
     {
+        uiManager.MainRaycasrBlocker.SetActive(true);
         //uiManager.RaycastBlocker.SetActive(true);
         ResetPingRoutine();
 

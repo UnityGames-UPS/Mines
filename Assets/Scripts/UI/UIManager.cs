@@ -38,6 +38,8 @@ public class UIManager : MonoBehaviour
 
     [Header("DropDown Mines")]
     [SerializeField] private Slider MinesSlider;
+    [SerializeField] private Button MinePlus;
+    [SerializeField] private Button MineMinus;
     [SerializeField] private TMP_Text DiamondAmount;
     [SerializeField] private TMP_Text BombAmount;
 
@@ -47,8 +49,8 @@ public class UIManager : MonoBehaviour
 
 
     [Header("Stop Loss")]
-    [SerializeField] internal TMP_InputField StopOnProfitText;
-    [SerializeField] internal TMP_InputField StopOnLossText;
+    [SerializeField] internal TMP_Dropdown StopOnProfitText;
+    [SerializeField] internal TMP_Dropdown StopOnLossText;
 
     [Header("Start Button")]
     [SerializeField] internal Button StartBet;
@@ -59,6 +61,7 @@ public class UIManager : MonoBehaviour
     [Header("InputBlocker")]
     [SerializeField] internal GameObject ManualInputBlocker;
     [SerializeField] internal GameObject AutoInputBlocker;
+    [SerializeField] internal GameObject MainRaycasrBlocker;
 
     [Space]
     [Space]
@@ -97,7 +100,8 @@ public class UIManager : MonoBehaviour
     private Vector3 ToststartPos;
 
     private Tween activeTween;
-
+    int intValue = 1;
+    private readonly List<double> multipliers = new List<double> { 0, 1.5, 1.75, 2, 2.5, 3, 4, 5 };
 
     void Start()
     {
@@ -155,14 +159,69 @@ public class UIManager : MonoBehaviour
         {
             NoBtn.onClick.AddListener(() => OnClickCloseButton());
         }
+        if (MineMinus)
+        {
+            MineMinus.onClick.AddListener(() => minesToggle(false));
+        }
+        if (MinePlus)
+        {
+            MinePlus.onClick.AddListener(() => minesToggle(true));
+        }
         if (ExitButton) ExitButton.onClick.AddListener(() => OnClickExitButton());
 
         MinesSlider.onValueChanged.AddListener(OnSliderValueChanged);
         OnSliderValueChanged(MinesSlider.value);
 
+        BetAmountDropDown.onValueChanged.AddListener(ChangeStoplossDropdownVal);
+
+        // Initialize once at start (optional)
+        //  ChangeStoplossDropdownVal(BetAmountDropDown.value);
+
         ToststartPos = toastImage.transform.localPosition;
     }
 
+    private void minesToggle(bool plus)
+    {
+        audioController.PlayWLAudio("button");
+
+        if (plus)
+        {
+            if (intValue < 24)
+            {
+                intValue++;
+            }
+        }
+        else
+        {
+            if (intValue > 1)
+            {
+                intValue--;
+            }
+        }
+
+        BombAmount.text = intValue.ToString();
+        gameManager.CurrentBombNo = intValue;
+        gameManager.HardReset();
+    }
+    void ChangeStoplossDropdownVal(int valx)
+    {
+        audioController.PlayWLAudio("button");
+        float betamount = float.Parse(BetAmountDropDown.options[BetAmountDropDown.value].text);
+        List<string> newOptions = new List<string>();
+
+        foreach (double m in multipliers)
+        {
+            double val = betamount * m;
+            newOptions.Add(val.ToString("0.##")); // format without unnecessary decimals
+        }
+
+        // Update Dropdown
+        StopOnProfitText.ClearOptions();
+        StopOnProfitText.AddOptions(newOptions);
+
+        StopOnLossText.ClearOptions();
+        StopOnLossText.AddOptions(newOptions);
+    }
     private void SoundToggle(bool on)
     {
         audioController.PlayWLAudio("button");
@@ -246,20 +305,21 @@ public class UIManager : MonoBehaviour
 
     void OnClickExitButton()
     {
-
+        audioController.PlayWLAudio("button");
         // CallOnExitFunction();
         TogglePopup(QuitPopup, true);
     }
     public void CallOnExitFunction()
     {
 
-        audioController.PlayButtonAudio();
+        audioController.PlayWLAudio("button");
         StartCoroutine(socketManager.CloseSocket());
         // Application.ExternalCall("window.parent.postMessage", "onExit", "*");
     }
 
     internal void SetInitData()
     {
+        MainRaycasrBlocker.SetActive(false);
         List<string> stringOptions = socketManager.InitialData.bets.Select(n => n.ToString()).ToList();
 
         // Clear old options
@@ -269,10 +329,13 @@ public class UIManager : MonoBehaviour
         BetAmountDropDown.AddOptions(stringOptions);
 
         playerBalanceText.text = socketManager.PlayerData.balance.ToString();
+
+        ChangeStoplossDropdownVal(BetAmountDropDown.value);
     }
 
     void OnSliderValueChanged(float value)
     {
+        audioController.PlayWLAudio("button");
         int intValue = Mathf.RoundToInt(value);
         DiamondAmount.text = (25 - intValue).ToString();
         BombAmount.text = intValue.ToString();

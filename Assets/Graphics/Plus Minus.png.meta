@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b03ad53c02b3449cb8c7cfcf3a5b9e39
+guid: d2f4100987cc247e69d8830e6091b3d1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mines Final-06_0
+      name: Plus Minus_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 143
-        width: 98
-        height: 98
+        x: 16
+        y: 216
+        width: 68
+        height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 764a4b3638aa1481fbf0a590c3507ce4
-      internalID: 236381831
+      spriteID: d546723f1b5fb49f5a587613b4612a0e
+      internalID: -1420210398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mines Final-06_1
+      name: Plus Minus_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 98
-        height: 98
+        x: 116
+        y: 216
+        width: 68
+        height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,8 +171,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b5373184498f42efb3e779c61992cbb
-      internalID: 1483285795
+      spriteID: cf3700f8afd0d4134a86c3a73ce5524c
+      internalID: 1191111057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plus Minus_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 116
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d705b7d9ea57402a98ed2243876b7cc
+      internalID: -1500813523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plus Minus_3
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 116
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07473af9da6a24980bef651564d45827
+      internalID: 945138547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plus Minus_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b995cf60951a45308b659437a5b5e46
+      internalID: 1053946450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plus Minus_5
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 16
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6632166b5727c4501a6816949c2e0905
+      internalID: -1546801553
       vertices: []
       indices: 
       edges: []
@@ -188,8 +272,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mines Final-06_0: 236381831
-      Mines Final-06_1: 1483285795
+      Plus Minus_0: -1420210398
+      Plus Minus_1: 1191111057
+      Plus Minus_2: -1500813523
+      Plus Minus_3: 945138547
+      Plus Minus_4: 1053946450
+      Plus Minus_5: -1546801553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
