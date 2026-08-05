@@ -22,30 +22,6 @@ public class AudioController : MonoBehaviour
         audioSpin_button.clip = clips[clips.Length - 2];
     }
 
-    internal void CheckFocusFunction(bool focus, bool IsSpinning)
-    {
-        if (!focus)
-        {
-            bg_adudio.Pause();
-            audioPlayer_wl.Pause();
-            audioPlayer_button.Pause();
-        }
-        else
-        {
-            if (!bg_adudio.mute) bg_adudio.UnPause();
-            if (IsSpinning)
-            {
-                if (!audioPlayer_wl.mute) audioPlayer_wl.UnPause();
-            }
-            else
-            {
-                StopWLAaudio();
-            }
-            if (!audioPlayer_button.mute) audioPlayer_button.UnPause();
-
-        }
-    }
-
     internal void SwitchBGSound(bool isbonus)
     {
         if (isbonus)
@@ -144,29 +120,42 @@ public class AudioController : MonoBehaviour
         bg_adudio.Stop();
     }
 
-    internal void ToggleMute(bool toggle, string type = "all")
+    private bool isForceMuted = false;
+
+    internal void SetMuteAll(bool forceMute)
     {
-        switch (type)
-        {
-            case "bg":
-                bg_adudio.mute = toggle;
-                // bg_audioBonus.mute = toggle;
-                break;
-            case "button":
-                audioPlayer_button.mute = toggle;
-                audioSpin_button.mute = toggle;
-                break;
-            case "wl":
-                audioPlayer_wl.mute = toggle;
-                //audioPlayer_Bonus.mute = toggle;
-                break;
-            case "all":
-                audioPlayer_wl.mute = toggle;
-                bg_adudio.mute = toggle;
-                audioPlayer_button.mute = toggle;
-                audioSpin_button.mute = toggle;
-                break;
-        }
+        if (forceMute == isForceMuted) return;
+        isForceMuted = forceMute;
+        ApplyMuteState();
+    }
+
+    private void ApplyMuteState()
+    {
+        bool soundMuted = isForceMuted || muteAudio;
+        bool musicMuted = isForceMuted || muteMusic;
+        audioPlayer_wl.mute = soundMuted;
+        audioPlayer_button.mute = soundMuted;
+        audioSpin_button.mute = soundMuted;
+        bg_adudio.mute = musicMuted;
+    }
+
+    internal void SetSoundMuted(bool muted)
+    {
+        muteAudio = muted;
+        isForceMuted = false;
+        ApplyMuteState();
+    }
+
+    internal void SetMusicMuted(bool muted)
+    {
+        muteMusic = muted;
+        isForceMuted = false;
+        ApplyMuteState();
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        SetMuteAll(!focus);
     }
 
 }

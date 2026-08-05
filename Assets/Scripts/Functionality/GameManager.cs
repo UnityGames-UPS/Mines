@@ -41,6 +41,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    internal void CompareBalance()
+    {
+        if (socketManager.PlayerData == null || socketManager.InitialData == null) return;
+        if (socketManager.PlayerData.balance - socketManager.InitialData.bets[uiManager.BetAmountDropDown.value] < 0)
+        {
+            uiManager.ShowLowbalancePopup();
+        }
+    }
+
     internal void SetOptionintractable(bool isFalse)
     {
         foreach (var btn in optionsBtn)

@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public GameManager gameManager;
 
     public AudioController audioController;
+    [SerializeField] internal JSFunctCalls jsFunctCalls;
 
 
     [Space]
@@ -102,6 +103,19 @@ public class UIManager : MonoBehaviour
     private Tween activeTween;
     int intValue = 1;
     private readonly List<double> multipliers = new List<double> { 0, 1.5, 1.75, 2, 2.5, 3, 4, 5 };
+
+    private void Awake()
+    {
+        jsFunctCalls?.RegisterVisibilityListener(gameObject.name);
+    }
+
+    public void OnFocusChanged(string value)
+    {
+        bool focused = value == "1";
+        Debug.Log("UNITY FOCUS CHANGED: " + value + " (focused: " + focused + ")");
+        audioController?.SetMuteAll(!focused);
+        socketManager?.HandleFocusChange(focused);
+    }
 
     void Start()
     {
@@ -225,41 +239,26 @@ public class UIManager : MonoBehaviour
     private void SoundToggle(bool on)
     {
         audioController.PlayWLAudio("button");
-        if (on)
-        {
-            audioController.muteAudio = true;
-            SoundON.gameObject.SetActive(false);
-            SoundOF.gameObject.SetActive(true);
-
-        }
-        else
-        {
-            audioController.muteAudio = false;
-            SoundON.gameObject.SetActive(true);
-            SoundOF.gameObject.SetActive(false);
-        }
+        audioController.SetSoundMuted(on);
+        SoundON.gameObject.SetActive(!on);
+        SoundOF.gameObject.SetActive(on);
     }
     private void MusicToggle(bool on)
     {
         audioController.PlayWLAudio("button");
-        if (on)
-        {
-            audioController.bg_adudio.Pause();
-            MusicON.gameObject.SetActive(false);
-            MusicOF.gameObject.SetActive(true);
-
-        }
-        else
-        {
-            audioController.bg_adudio.Play();
-            MusicON.gameObject.SetActive(true);
-            MusicOF.gameObject.SetActive(false);
-        }
+        audioController.SetMusicMuted(on);
+        MusicON.gameObject.SetActive(!on);
+        MusicOF.gameObject.SetActive(on);
     }
     internal void ShowLowbalancePopup()
     {
 
         TogglePopup(LowBalancePopup, true);
+    }
+    internal void UpdateBalanceDisplay(double newBalance)
+    {
+        if (playerBalanceText) playerBalanceText.text = newBalance.ToString();
+        gameManager?.CompareBalance();
     }
     #region panels
     public void OnClickCloseButton()
