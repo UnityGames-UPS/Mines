@@ -11,6 +11,6 @@ jobs:
     uses: UnityGames-UPS/unity-build-pipeline/.github/workflows/main.yml@main
     with:
       s3_bucket: unity.build-dev-b2b
-      s3_folder: KN-MN
+      s3_folder: OT-MN
       cloudfront_distribution_id: E378YMF6D9XCK8
-      invalidate_paths: "/KN-MN/*"
+      invalidate_paths: "/OT-MN/*"
