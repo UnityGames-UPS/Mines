@@ -68,6 +68,7 @@ public class SocketIOManager : MonoBehaviour
   private float maxBackgroundTime = 60f;
   private bool isExiting = false;
   private bool isBeingDestroyed = false;
+  private bool IsIntentionalClose => isExiting || isBeingDestroyed;
 
   // protected string nameSpace = "game";
   private void Start()
@@ -283,9 +284,14 @@ public class SocketIOManager : MonoBehaviour
   private void OnDisconnected() //Back2 Start
   {
     Debug.LogWarning("⚠️ Disconnected from server.");
-    uiManager.DisconnectionPopup();
     isConnected = false;
     ResetPingRoutine();
+    if (IsIntentionalClose)
+    {
+      Debug.Log("Disconnect during intentional exit — popup suppressed");
+      return;
+    }
+    uiManager.DisconnectionPopup();
   } //Back2 end
   private void OnPongReceived(string data) //Back2 Start
   {
@@ -371,6 +377,8 @@ public class SocketIOManager : MonoBehaviour
   {
     while (true)
     {
+      if (IsIntentionalClose) yield break;
+
       if (missedPongs == 0)
       {
         uiManager.CheckAndClosePopups();
@@ -473,7 +481,10 @@ public class SocketIOManager : MonoBehaviour
 
   internal IEnumerator CloseSocket() //Back2 Start
   {
+    if (isExiting) yield break;
     isExiting = true;
+    isConnected = false;
+    uiManager.CheckAndClosePopups();
     uiManager.MainRaycasrBlocker.SetActive(true);
     //uiManager.RaycastBlocker.SetActive(true);
     ResetPingRoutine();
@@ -538,6 +549,8 @@ public class SocketIOManager : MonoBehaviour
 
       case "ExitUser":
         {
+          isExiting = true;
+          ResetPingRoutine();
           gameSocket.Disconnect();
           if (this.manager != null)
           {
