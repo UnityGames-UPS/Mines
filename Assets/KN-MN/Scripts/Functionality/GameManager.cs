@@ -8,23 +8,23 @@ using UnityEngine.UIElements;
 public class GameManager : MonoBehaviour
 {
     [Header("Script Refrence")]
-    public SocketIOManager socketManager;
-    public UIManager uiManager;
+    [SerializeField] private SocketIOManager socketManager;
+    [SerializeField] private UIManager uiManager;
 
-    public AudioController audioController;
+    [SerializeField] private AudioController audioController;
 
     [Header("Button Refrence")]
-    [SerializeField] internal List<OptionBtn> optionsBtn;
+    [SerializeField] private List<OptionBtn> optionsBtn;
 
 
 
     [Header("Variable")]
     internal bool isAuto = false;
     internal bool isbetInProgress = false;
-    internal bool autoLooping = false;
+    private bool autoLooping = false;
     internal int CurrentBombNo = 1;
     internal List<int> selectedOptions = new List<int>();
-    internal double TotalPLInAuto;
+    private double TotalPLInAuto;
 
     void Start()
     {

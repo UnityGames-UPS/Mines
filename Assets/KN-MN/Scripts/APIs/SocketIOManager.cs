@@ -16,17 +16,17 @@ public class SocketIOManager : MonoBehaviour
   [SerializeField] private UIManager uiManager;
   [SerializeField] private JSFunctCalls JSManager;
   internal GameData InitialData = null;
-  internal UiData UIData = null;
+  private UiData UIData = null;
   internal Root ResultData = null;
   internal Player PlayerData = null;
-  internal Root GambleData = null;
-  internal Root bonusData = new();
-  internal List<List<int>> LineData = null;
-  internal List<int> BonusData = null;
+  private Root GambleData = null;
+  private Root bonusData = new();
+  private List<List<int>> LineData = null;
+  private List<int> BonusData = null;
 
   // internal GambleResult gambleData = null;
   // internal Message myMessage = null;
-  internal double GambleLimit = 0;
+  private double GambleLimit = 0;
   //[SerializeField] internal List<string> bonusdata = null;
   internal bool isResultdone = false;
 
@@ -45,7 +45,7 @@ public class SocketIOManager : MonoBehaviour
   private const int maxReconnectionAttempts = 6;
   private readonly TimeSpan reconnectionDelay = TimeSpan.FromSeconds(10);
 
-  internal bool SetInit = false;
+  private bool SetInit = false;
 
   protected string nameSpace = "playground"; //BackendChanges
 
@@ -88,7 +88,7 @@ public class SocketIOManager : MonoBehaviour
 
   string myAuth = null;
 
-  internal bool isLoaded = false;
+  private bool isLoaded = false;
 
   private void Awake()
   {
@@ -505,7 +505,7 @@ public class SocketIOManager : MonoBehaviour
 #endif
   } //Back2 end
 
-  internal void closeSocketReactnativeCall()
+  private void closeSocketReactnativeCall()
   {
 #if UNITY_WEBGL && !UNITY_EDITOR
         JSManager.SendCustomMessage("OnExit");

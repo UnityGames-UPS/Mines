@@ -11,11 +11,11 @@ using System.Linq;
 public class UIManager : MonoBehaviour
 {
     [Header("Script Refrence")]
-    public SocketIOManager socketManager;
-    public GameManager gameManager;
+    [SerializeField] private SocketIOManager socketManager;
+    [SerializeField] private GameManager gameManager;
 
-    public AudioController audioController;
-    [SerializeField] internal JSFunctCalls jsFunctCalls;
+    [SerializeField] private AudioController audioController;
+    [SerializeField] private JSFunctCalls jsFunctCalls;
 
 
     [Space]
@@ -94,10 +94,10 @@ public class UIManager : MonoBehaviour
 
 
     [Header("Toast")]
-    public Image toastImage;    // Your toast background image
-    public TMP_Text toastText;      // Your toast text
-    public float duration = 3f; // Time before it disappears
-    public float moveDistance = 10f;
+    [SerializeField] private Image toastImage;    // Your toast background image
+    [SerializeField] private TMP_Text toastText;      // Your toast text
+    [SerializeField] private float duration = 3f; // Time before it disappears
+    [SerializeField] private float moveDistance = 10f;
     private Vector3 ToststartPos;
 
     private Tween activeTween;
@@ -273,7 +273,7 @@ public class UIManager : MonoBehaviour
         if (QuitPopup.activeInHierarchy) TogglePopup(QuitPopup, false);
 
     }
-    public void TogglePopup(GameObject panel, bool setActive)
+    private void TogglePopup(GameObject panel, bool setActive)
     {
         // OnClickCloseButton();
         PopupPanel.SetActive(setActive);

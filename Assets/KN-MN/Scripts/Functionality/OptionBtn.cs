@@ -9,8 +9,8 @@ public class OptionBtn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] internal Button btn;
     [SerializeField] internal Image border;
     [SerializeField] internal Image FillBorder;
-    [SerializeField] internal Image bomb;
-    [SerializeField] internal Image diamond;
+    [SerializeField] private Image bomb;
+    [SerializeField] private Image diamond;
     [SerializeField] internal Image Cover;
 
     internal int indexK;
@@ -32,7 +32,7 @@ public class OptionBtn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         ResetAll();
     }
 
-    internal void SetIndex(int index)
+    private void SetIndex(int index)
     {
         indexK = index;
     }
@@ -121,7 +121,7 @@ public class OptionBtn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         });
     }
 
-    internal void WaitTillResult()
+    private void WaitTillResult()
     {
         objAnimate.transform.localScale = Vector3.one;
 
@@ -168,7 +168,7 @@ public class OptionBtn : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     }
 
-    internal void ResetParticular()
+    private void ResetParticular()
     {
         ResetAll();
     }
